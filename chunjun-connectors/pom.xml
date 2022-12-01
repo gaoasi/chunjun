@@ -24,7 +24,7 @@
 	<parent>
 		<artifactId>chunjun</artifactId>
 		<groupId>com.dtstack.chunjun</groupId>
-		<version>1.12-SNAPSHOT</version>
+		<version>1.16-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
@@ -34,6 +34,7 @@
 
 	<properties>
 		<connector.base.dir>connector</connector.base.dir>
+		<connector.dir>connector</connector.dir>
 	</properties>
 
 	<modules>
@@ -41,7 +42,6 @@
 		<module>chunjun-connector-stream</module>
 
 		<!--MQ-->
-		<module>chunjun-connector-kafka</module>
 		<module>chunjun-connector-emqx</module>
 		<module>chunjun-connector-rocketmq</module>
 		<module>chunjun-connector-rabbitmq</module>
@@ -67,7 +67,7 @@
 
 		<!--File-->
 		<module>chunjun-connector-file</module>
-		<module>chunjun-connector-filesystem</module>
+		<!--		<module>chunjun-connector-filesystem</module>-->
 		<module>chunjun-connector-ftp</module>
 		<module>chunjun-connector-hdfs</module>
 		<module>chunjun-connector-hive</module>
@@ -79,7 +79,7 @@
 		<module>chunjun-connector-hbase-base</module>
 		<module>chunjun-connector-hbase-1.4</module>
 		<module>chunjun-connector-hbase2</module>
-		<!--		<module>chunjun-connector-elasticsearch6</module>-->
+		<module>chunjun-connector-elasticsearch6</module>
 		<module>chunjun-connector-elasticsearch7</module>
 		<module>chunjun-connector-elasticsearch-base</module>
 		<module>chunjun-connector-redis</module>
@@ -92,7 +92,6 @@
 		<module>chunjun-connector-oceanbasecdc</module>
 		<module>chunjun-connector-oraclelogminer</module>
 		<module>chunjun-connector-sqlservercdc</module>
-		<module>chunjun-connector-pgwal</module>
 		<module>chunjun-connector-mysqlcdc</module>
 
 		<!--Network-->
@@ -102,7 +101,6 @@
 		<!--Distribute plugin, just for SYNC-->
 		<module>chunjun-connector-mysqld</module>
 	</modules>
-
 
 	<dependencies>
 		<dependency>

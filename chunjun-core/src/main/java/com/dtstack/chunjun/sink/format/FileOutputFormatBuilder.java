@@ -17,13 +17,8 @@
  */
 package com.dtstack.chunjun.sink.format;
 
-import com.dtstack.chunjun.conf.BaseFileConf;
+import com.dtstack.chunjun.config.BaseFileConfig;
 
-/**
- * Date: 2021/06/21 Company: www.dtstack.com
- *
- * @author tudou
- */
 public abstract class FileOutputFormatBuilder<T extends BaseFileOutputFormat>
         extends BaseRichOutputFormatBuilder<T> {
 
@@ -31,7 +26,7 @@ public abstract class FileOutputFormatBuilder<T extends BaseFileOutputFormat>
         super(format);
     }
 
-    public void setBaseFileConf(BaseFileConf baseFileConf) {
+    public void setBaseFileConf(BaseFileConfig baseFileConf) {
         super.setConfig(baseFileConf);
         format.baseFileConf = baseFileConf;
     }

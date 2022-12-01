@@ -26,7 +26,7 @@ import org.apache.flink.table.types.DataType;
 import org.apache.flink.table.types.logical.DecimalType;
 import org.apache.flink.table.types.utils.TypeConversions;
 
-import org.apache.flink.shaded.guava18.com.google.common.base.Splitter;
+import org.apache.flink.shaded.guava30.com.google.common.base.Splitter;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
@@ -42,11 +42,6 @@ import java.util.regex.Pattern;
 import static org.apache.flink.table.api.DataTypes.DECIMAL;
 import static org.apache.flink.table.api.DataTypes.TIMESTAMP;
 
-/**
- * @program: flink.sql
- * @author: wuren
- * @create: 2020/07/09
- */
 public class DataTypeUtil {
 
     private static final Pattern COMPOSITE_TYPE_PATTERN = Pattern.compile("(.+?)<(.+)>");

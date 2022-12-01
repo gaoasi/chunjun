@@ -35,17 +35,12 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-/**
- * @program chunjun
- * @author: xiuzhu
- * @create: 2021/05/31
- */
-public class StandaloneClusterClientHelper implements ClusterClientHelper {
+public class StandaloneClusterClientHelper implements ClusterClientHelper<StandaloneClusterId> {
 
     private static final Logger LOG = LoggerFactory.getLogger(YarnSessionClusterClientHelper.class);
 
     @Override
-    public ClusterClient submit(JobDeployer jobDeployer) throws Exception {
+    public ClusterClient<StandaloneClusterId> submit(JobDeployer jobDeployer) throws Exception {
 
         Options launcherOptions = jobDeployer.getLauncherOptions();
         List<String> programArgs = jobDeployer.getProgramArgs();
@@ -53,7 +48,7 @@ public class StandaloneClusterClientHelper implements ClusterClientHelper {
 
         try (StandaloneClusterDescriptor standaloneClusterDescriptor =
                 new StandaloneClusterDescriptor(flinkConf)) {
-            ClusterClient clusterClient =
+            ClusterClient<StandaloneClusterId> clusterClient =
                     standaloneClusterDescriptor
                             .retrieve(StandaloneClusterId.getInstance())
                             .getClusterClient();
@@ -62,7 +57,7 @@ public class StandaloneClusterClientHelper implements ClusterClientHelper {
             jobGraph.getClasspaths().clear();
             jobGraph.getUserJars().clear();
             jobGraph.getUserArtifacts().clear();
-            JobID jobID = (JobID) clusterClient.submitJob(jobGraph).get();
+            JobID jobID = clusterClient.submitJob(jobGraph).get();
             LOG.info("submit job successfully, jobID = {}", jobID);
             return clusterClient;
         }

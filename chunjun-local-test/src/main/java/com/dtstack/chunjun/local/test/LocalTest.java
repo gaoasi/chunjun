@@ -30,10 +30,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
-/** @author jiangbo */
 public class LocalTest {
 
     public static Logger LOG = LoggerFactory.getLogger(LocalTest.class);
@@ -47,8 +47,8 @@ public class LocalTest {
         //        confProperties.setProperty("state.checkpoints.dir", "file:///ck");
         String userDir = System.getProperty("user.dir");
 
-        String jobPath = userDir + "/chunjun-examples/json/stream/stream.json";
-        String chunjunDistDir = userDir + "/start-chunjun-dist";
+        String jobPath = userDir + "/chunjun-examples/sql/stream/row_array_map_data_type.sql";
+        String chunjunDistDir = userDir + "/chunjun-dist";
         String s = "";
 
         // 任务配置参数
@@ -109,6 +109,8 @@ public class LocalTest {
             argsList.add(chunjunDistDir);
             argsList.add("-pluginLoadMode");
             argsList.add("LocalTest");
+            argsList.add("-addjar");
+            argsList.add(GsonUtil.GSON.toJson(Collections.singleton("/opt/temp/aa.jar")));
             // argsList.add("-confProp");
             //// 脏数据相关配置信息
             // StringBuilder stringBuilder = new StringBuilder();
